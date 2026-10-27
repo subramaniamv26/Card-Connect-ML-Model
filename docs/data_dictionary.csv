@@ -1,0 +1,98 @@
+csv_file,oracle_table,column_name,oracle_type,nullable,description,ml_usage,notes
+customers.csv,CUSTOMERS,customer_id,VARCHAR2(20),N,Synthetic customer id CUSTOMER_000001...,IDENTIFIER,Group key
+customers.csv,CUSTOMERS,customer_name,VARCHAR2(100),N,Synthetic customer name (random given name + surname),EXCLUDE_PII,
+customers.csv,CUSTOMERS,nic_no,VARCHAR2(12),N,Synthetic NIC (old 9 digits+V or new 12 digits); 1:1 with customer,EXCLUDE_PII,
+customers.csv,CUSTOMERS,mobile_device_id,VARCHAR2(20),N,Customer's primary mobile device id; 1:1 with customer,IDENTIFIER,
+customers.csv,CUSTOMERS,device_type,VARCHAR2(20),N,MOBILE_PHONE or TABLET,FEATURE,
+customers.csv,CUSTOMERS,customer_contact_no,VARCHAR2(20),N,MOBILE_PHON_NO,IDENTIFIER,
+customers.csv,CUSTOMERS,device_os,VARCHAR2(10),N,ANDROID or IOS,FEATURE,
+customers.csv,CUSTOMERS,customer_segment,VARCHAR2(30),N,Bank-assigned customer segment,FEATURE_OPTIONAL,Exclude when the goal is to discover behaviour segments unsupervised
+customers.csv,CUSTOMERS,customer_home_city,VARCHAR2(60),N,Home city,FEATURE,High cardinality - target/frequency encode
+customers.csv,CUSTOMERS,customer_home_district,VARCHAR2(40),N,Home district (25 districts),FEATURE,
+customers.csv,CUSTOMERS,customer_home_province,VARCHAR2(40),N,Home province (9 provinces),FEATURE,
+customers.csv,CUSTOMERS,customer_tenure_months,NUMBER(4),N,Months as a customer of the bank,FEATURE,
+customers.csv,CUSTOMERS,number_of_cards,NUMBER(2),N,Number of cards held (all statuses),FEATURE,
+cards.csv,CARDS,card_id,VARCHAR2(20),N,Synthetic card id CARD_00000001... (not a PAN),IDENTIFIER,
+cards.csv,CARDS,customer_id,VARCHAR2(20),N,Synthetic customer id CUSTOMER_000001...,IDENTIFIER,Group key
+cards.csv,CARDS,nic_no,VARCHAR2(12),N,Synthetic NIC (old 9 digits+V or new 12 digits); 1:1 with customer,EXCLUDE_PII,
+cards.csv,CARDS,card_network,VARCHAR2(12),N,VISA / MASTERCARD / AMEX,FEATURE,
+cards.csv,CARDS,card_type,VARCHAR2(6),N,CREDIT / DEBIT,FEATURE,
+cards.csv,CARDS,card_tier,VARCHAR2(12),N,CLASSIC / GOLD / PLATINUM / SIGNATURE / PREMIUM,FEATURE,
+cards.csv,CARDS,card_age_months,NUMBER(4),N,Months since card issue,FEATURE,
+cards.csv,CARDS,card_status,VARCHAR2(10),N,ACTIVE / INACTIVE / BLOCKED,FEATURE,Only ACTIVE cards transact
+merchants.csv,MERCHANTS,merchant_id,VARCHAR2(20),N,Merchant outlet id MERCHANT_000001...,IDENTIFIER,"Use as an item id / embedding in recommenders, not as a numeric feature"
+merchants.csv,MERCHANTS,merchant_brand,VARCHAR2(100),N,Merchant brand,FEATURE,Item for brand-affinity models
+merchants.csv,MERCHANTS,merchant_category,VARCHAR2(20),N,One of 12 merchant categories,FEATURE,
+merchants.csv,MERCHANTS,merchant_location,VARCHAR2(200),N,Synthetic street address of outlet,EXCLUDE_PII,Free text
+merchants.csv,MERCHANTS,merchant_city,VARCHAR2(60),N,Outlet city (INTERNATIONAL for foreign online merchants),FEATURE,
+merchants.csv,MERCHANTS,merchant_district,VARCHAR2(40),N,Outlet district,FEATURE,
+merchants.csv,MERCHANTS,merchant_province,VARCHAR2(40),N,Outlet province,FEATURE,
+merchants.csv,MERCHANTS,merchant_email,VARCHAR2(120),N,Synthetic merchant email on reserved .example domain,EXCLUDE_PII,
+merchants.csv,MERCHANTS,merchant_contact_no,VARCHAR2(20),N,Synthetic merchant phone number,EXCLUDE_PII,
+merchants.csv,MERCHANTS,merchant_type,VARCHAR2(10),N,PHYSICAL / ONLINE / SERVICE,FEATURE,
+merchants.csv,MERCHANTS,merchant_offer_supported,VARCHAR2(3),N,Merchant participates in bank offers (YES/NO),FEATURE,
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,offer_id,VARCHAR2(20),N,Offer redeemed on this transaction (blank if none),EXCLUDE_LEAKAGE,Post-transaction outcome
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,customer_id,VARCHAR2(20),N,Synthetic customer id CUSTOMER_000001...,IDENTIFIER,Group key
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,recommended_category,VARCHAR2(20),N,Category the offer promotes,FEATURE,
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,recommended_merchant_brand,VARCHAR2(100),N,Brand the offer promotes,FEATURE,
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,offer_reason,VARCHAR2(400),N,Human-readable targeting reason,METADATA,Text
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,preference_score,"NUMBER(6,4)",N,Affinity score 0-1 at targeting time,FEATURE,
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,offer_priority,VARCHAR2(10),N,HIGH / MEDIUM / LOW derived from preference_score,FEATURE,
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,offer_type,VARCHAR2(20),N,LOYALTY / CROSS_SELL / CATEGORY_GROWTH / REACTIVATION / FREQUENCY_GROWTH / VALUE_GROWTH,FEATURE,
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,offer_status,VARCHAR2(10),N,GENERATED / SENT / EXPIRED / REDEEMED,EXCLUDE_LEAKAGE,Encodes the outcome
+customer_offer_candidates.csv,CUSTOMER_OFFER_CANDIDATES,offer_utilized,VARCHAR2(3),N,YES if an offer was redeemed on this transaction,TARGET,Label for offer-response models
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_id,VARCHAR2(20),N,"Synthetic transaction id, chronological (TXN_000000001...)",IDENTIFIER,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_datetime,DATE,N,Transaction timestamp YYYY-MM-DD HH:MM:SS (local time),FEATURE_OPTIONAL,Use derived hour/day/month; use raw value only for ordering / splitting
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,bank_id,VARCHAR2(20),N,"Issuing bank (always BANK_001, fictional)",METADATA,Constant
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,customer_id,VARCHAR2(20),N,Synthetic customer id CUSTOMER_000001...,IDENTIFIER,Group key
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,customer_name,VARCHAR2(100),N,Synthetic customer name (random given name + surname),EXCLUDE_PII,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,nic_no,VARCHAR2(12),N,Synthetic NIC (old 9 digits+V or new 12 digits); 1:1 with customer,EXCLUDE_PII,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,mobile_device_id,VARCHAR2(20),N,Customer's primary mobile device id; 1:1 with customer,IDENTIFIER,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,device_type,VARCHAR2(20),N,MOBILE_PHONE or TABLET,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,device_os,VARCHAR2(10),N,ANDROID or IOS,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,customer_segment,VARCHAR2(30),N,Bank-assigned customer segment,FEATURE_OPTIONAL,Exclude when the goal is to discover behaviour segments unsupervised
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,customer_home_city,VARCHAR2(60),N,Home city,FEATURE,High cardinality - target/frequency encode
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,customer_home_district,VARCHAR2(40),N,Home district (25 districts),FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,customer_home_province,VARCHAR2(40),N,Home province (9 provinces),FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,card_id,VARCHAR2(20),N,Synthetic card id CARD_00000001... (not a PAN),IDENTIFIER,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,card_network,VARCHAR2(12),N,VISA / MASTERCARD / AMEX,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,card_type,VARCHAR2(6),N,CREDIT / DEBIT,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,card_tier,VARCHAR2(12),N,CLASSIC / GOLD / PLATINUM / SIGNATURE / PREMIUM,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_id,VARCHAR2(20),N,Merchant outlet id MERCHANT_000001...,IDENTIFIER,"Use as an item id / embedding in recommenders, not as a numeric feature"
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_brand,VARCHAR2(100),N,Merchant brand,FEATURE,Item for brand-affinity models
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_category,VARCHAR2(20),N,One of 12 merchant categories,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_location,VARCHAR2(200),N,Synthetic street address of outlet,EXCLUDE_PII,Free text
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_city,VARCHAR2(60),N,Outlet city (INTERNATIONAL for foreign online merchants),FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_district,VARCHAR2(40),N,Outlet district,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_province,VARCHAR2(40),N,Outlet province,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_email,VARCHAR2(120),N,Synthetic merchant email on reserved .example domain,EXCLUDE_PII,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,merchant_contact_no,VARCHAR2(20),N,Synthetic merchant phone number,EXCLUDE_PII,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_type,VARCHAR2(20),N,PURCHASE / BILL_PAYMENT / RECURRING_PAYMENT,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_channel,VARCHAR2(25),N,POS_CHIP / CONTACTLESS / ONLINE / MOBILE_APP / RECURRING_AUTO_DEBIT,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_amount,"NUMBER(14,2)",N,Amount in transaction_currency,FEATURE,Convert USD x 300 (FX_USD_TO_LKR) before aggregating
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_currency,VARCHAR2(3),N,LKR or USD,METADATA,Redundant with is_international
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_status,VARCHAR2(10),N,APPROVED / DECLINED,FEATURE_OPTIONAL,Behaviour features use APPROVED only
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,transaction_hour,NUMBER(2),N,Hour of day 0-23,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,time_of_day,VARCHAR2(10),N,"MORNING 05-11, DAY 12-16, EVENING 17-20, NIGHT 21-04",FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,day_of_week,VARCHAR2(10),N,MONDAY..SUNDAY,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,is_weekend,NUMBER(1),N,1 if Saturday/Sunday,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,month,VARCHAR2(7),N,Calendar month YYYY-MM,FEATURE_OPTIONAL,Do not extrapolate beyond training months
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,is_online_transaction,NUMBER(1),N,1 for ONLINE / MOBILE_APP / RECURRING_AUTO_DEBIT,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,is_domestic,NUMBER(1),N,1 if domestic merchant,FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,is_international,NUMBER(1),N,1 if foreign online merchant (USD),FEATURE,
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,offer_id,VARCHAR2(20),Y,Offer redeemed on this transaction (blank if none),EXCLUDE_LEAKAGE,Post-transaction outcome
+credit_card_transactions_3m.csv,CARD_TRANSACTIONS,offer_utilized,VARCHAR2(3),N,YES if an offer was redeemed on this transaction,TARGET,Label for offer-response models; never an input
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_id,VARCHAR2(20),N,Offer redeemed on this transaction (blank if none),EXCLUDE_LEAKAGE,Post-transaction outcome
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,customer_id,VARCHAR2(20),N,Synthetic customer id CUSTOMER_000001...,IDENTIFIER,Group key
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,merchant_id,VARCHAR2(20),N,Merchant outlet id MERCHANT_000001...,IDENTIFIER,"Use as an item id / embedding in recommenders, not as a numeric feature"
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,merchant_brand,VARCHAR2(100),N,Merchant brand,FEATURE,Item for brand-affinity models
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,merchant_category,VARCHAR2(20),N,One of 12 merchant categories,FEATURE,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_type,VARCHAR2(20),N,LOYALTY / CROSS_SELL / CATEGORY_GROWTH / REACTIVATION / FREQUENCY_GROWTH / VALUE_GROWTH,FEATURE,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_start_date,DATE,N,First day the offer is valid,FEATURE_OPTIONAL,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_end_date,DATE,N,Last day the offer is valid,FEATURE_OPTIONAL,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_received,VARCHAR2(3),N,Offer delivered to customer (YES),METADATA,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_redeemed,VARCHAR2(3),N,Reward granted (equals offer_utilized),EXCLUDE_LEAKAGE,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,offer_utilized,VARCHAR2(3),N,YES if an offer was redeemed on this transaction,TARGET,Label for offer-response models
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,utilization_date,DATE,Y,Timestamp of redeeming transaction,EXCLUDE_LEAKAGE,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,utilization_transaction_id,VARCHAR2(20),Y,Redeeming transaction id (FK to transactions),IDENTIFIER,
+customer_offer_utilization.csv,CUSTOMER_OFFER_UTILIZATION,utilization_amount,"NUMBER(14,2)",Y,Amount of redeeming transaction,EXCLUDE_LEAKAGE,

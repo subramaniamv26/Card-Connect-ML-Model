@@ -1,0 +1,370 @@
+{
+  "items": [
+    {
+      "customer": {
+        "customer_id": "CUSTOMER_000075",
+        "customer_name": "T******* B**********",
+        "mobile_device_id": "DEV*******075",
+        "customer_home_city": "Jaffna",
+        "customer_home_district": "Jaffna",
+        "customer_home_province": "Northern",
+        "customer_contact_no": null,
+        "customer_contact_no_available": false,
+        "history_level": "ESTABLISHED",
+        "cards_held": 1,
+        "active_cards": 1,
+        "devices_registered": 1
+      },
+      "recommendation_status": "FULL",
+      "shortfall_reason": null,
+      "offers": [
+        {
+          "rank": 1,
+          "offer_id": "SMP-RET-003",
+          "offer_title": "[SAMPLE] 10% off at NOLIMIT",
+          "offer_description": "Synthetic sample offer: 10% off apparel and homeware at NOLIMIT.",
+          "recommendation_score": 0.768502,
+          "recommendation_reason": "You frequently shop at NOLIMIT (8 purchases in your history), there is an outlet in Jaffna, and this offer applies to your Visa debit card.",
+          "reason_codes": [
+            "FREQUENT_MERCHANT",
+            "RECENT_MERCHANT",
+            "NEARBY_OUTLET",
+            "CARD_ELIGIBLE"
+          ],
+          "offer_type": "PERCENT_DISCOUNT",
+          "offer_value": 10.0,
+          "minimum_spend": 4000.0,
+          "maximum_benefit": 2000.0,
+          "estimated_customer_saving": 1795.9,
+          "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 17,959 (your average at NOLIMIT); benefit = 10% of the purchase. Not a guaranteed amount.",
+          "currency": "LKR",
+          "valid_from": "2026-10-01",
+          "valid_to": "2027-01-31",
+          "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion.",
+          "is_sample_offer": true,
+          "card": {
+            "card_id": "CARD_00000129",
+            "card_network": "VISA",
+            "card_type": "DEBIT"
+          },
+          "merchant": {
+            "merchant_id": "MERCHANT_000717",
+            "merchant_brand": "NOLIMIT",
+            "merchant_location": "No. 118, Station Road, Jaffna",
+            "merchant_city": "Jaffna",
+            "merchant_district": "Jaffna",
+            "merchant_province": "Northern",
+            "merchant_email": "n***@merchant-mail.example",
+            "merchant_contact_no": "********641",
+            "merchant_type": "PHYSICAL",
+            "merchant_category": "RETAIL"
+          },
+          "customer_merchant_spend": {
+            "merchant_transaction_amount_last_3_months": 51412.66,
+            "merchant_transaction_count_last_3_months": 3,
+            "last_transaction_date_with_merchant": "2026-10-08",
+            "average_transaction_amount_with_merchant": 17959.02,
+            "aggregation_period_start": "2026-07-13",
+            "aggregation_period_end": "2026-10-12",
+            "currency": "LKR"
+          }
+        },
+        {
+          "rank": 2,
+          "offer_id": "SMP-FUE-002",
+          "offer_title": "[SAMPLE] 4% cashback at Ceypetco",
+          "offer_description": "Synthetic sample offer: 4% cashback on fuel at Ceypetco filling stations.",
+          "recommendation_score": 0.754494,
+          "recommendation_reason": "You frequently shop at Ceypetco (13 purchases in your history), there is an outlet in Jaffna, and this offer applies to your Visa debit card.",
+          "reason_codes": [
+            "FREQUENT_MERCHANT",
+            "RECENT_MERCHANT",
+            "NEARBY_OUTLET",
+            "CARD_ELIGIBLE"
+          ],
+          "offer_type": "PERCENT_CASHBACK",
+          "offer_value": 4.0,
+          "minimum_spend": 3000.0,
+          "maximum_benefit": 500.0,
+          "estimated_customer_saving": 500.0,
+          "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 14,623 (your average at Ceypetco); benefit = 4% of the purchase, capped at LKR 500. Not a guaranteed amount.",
+          "currency": "LKR",
+          "valid_from": "2026-10-01",
+          "valid_to": "2027-01-31",
+          "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion.",
+          "is_sample_offer": true,
+          "card": {
+            "card_id": "CARD_00000129",
+            "card_network": "VISA",
+            "card_type": "DEBIT"
+          },
+          "merchant": {
+            "merchant_id": "MERCHANT_000426",
+            "merchant_brand": "Ceypetco",
+            "merchant_location": "No. 416, Lake Road, Chavakachcheri",
+            "merchant_city": "Chavakachcheri",
+            "merchant_district": "Jaffna",
+            "merchant_province": "Northern",
+            "merchant_email": "c***@merchant-mail.example",
+            "merchant_contact_no": "********463",
+            "merchant_type": "PHYSICAL",
+            "merchant_category": "FUEL"
+          },
+          "customer_merchant_spend": {
+            "merchant_transaction_amount_last_3_months": 58900.0,
+            "merchant_transaction_count_last_3_months": 5,
+            "last_transaction_date_with_merchant": "2026-10-08",
+            "average_transaction_amount_with_merchant": 14125.21,
+            "aggregation_period_start": "2026-07-13",
+            "aggregation_period_end": "2026-10-12",
+            "currency": "LKR"
+          }
+        },
+        {
+          "rank": 3,
+          "offer_id": "SMP-GRO-003",
+          "offer_title": "[SAMPLE] LKR 750 off at Arpico Supercentre",
+          "offer_description": "Synthetic sample offer: flat LKR 750 off on a basket of LKR 7500 or more.",
+          "recommendation_score": 0.726719,
+          "recommendation_reason": "You frequently shop at Arpico Supercentre (8 purchases in your history), there is an outlet in Jaffna, and this offer applies to your Visa debit card.",
+          "reason_codes": [
+            "FREQUENT_MERCHANT",
+            "NEARBY_OUTLET",
+            "CARD_ELIGIBLE"
+          ],
+          "offer_type": "FIXED_DISCOUNT",
+          "offer_value": 750.0,
+          "minimum_spend": 7500.0,
+          "maximum_benefit": 750.0,
+          "estimated_customer_saving": 750.0,
+          "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 8,129 (your average at Arpico Supercentre); benefit = fixed LKR 750. Not a guaranteed amount.",
+          "currency": "LKR",
+          "valid_from": "2026-10-01",
+          "valid_to": "2027-01-31",
+          "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion. Visa and Mastercard only.",
+          "is_sample_offer": true,
+          "card": {
+            "card_id": "CARD_00000129",
+            "card_network": "VISA",
+            "card_type": "DEBIT"
+          },
+          "merchant": {
+            "merchant_id": "MERCHANT_000163",
+            "merchant_brand": "Arpico Supercentre",
+            "merchant_location": "No. 349, Main Street, Chavakachcheri",
+            "merchant_city": "Chavakachcheri",
+            "merchant_district": "Jaffna",
+            "merchant_province": "Northern",
+            "merchant_email": "a***@merchant-mail.example",
+            "merchant_contact_no": "********050",
+            "merchant_type": "PHYSICAL",
+            "merchant_category": "GROCERY"
+          },
+          "customer_merchant_spend": {
+            "merchant_transaction_amount_last_3_months": 11878.23,
+            "merchant_transaction_count_last_3_months": 2,
+            "last_transaction_date_with_merchant": "2026-07-31",
+            "average_transaction_amount_with_merchant": 8129.24,
+            "aggregation_period_start": "2026-07-13",
+            "aggregation_period_end": "2026-10-12",
+            "currency": "LKR"
+          }
+        }
+      ],
+      "generated_at": "2026-10-25T19:36:59Z",
+      "data_as_of": "2026-10-12",
+      "model_version": "hybrid-20261026-010612",
+      "batch_id": 24,
+      "aggregation_period_start": "2026-07-13",
+      "aggregation_period_end": "2026-10-12",
+      "served_at": "2026-10-26T01:22:58+05:30",
+      "pii_masked": true
+    },
+    {
+      "customer": {
+        "customer_id": "CUSTOMER_000119",
+        "customer_name": "S****** S********",
+        "mobile_device_id": "DEV*******119",
+        "customer_home_city": "Jaffna",
+        "customer_home_district": "Jaffna",
+        "customer_home_province": "Northern",
+        "customer_contact_no": null,
+        "customer_contact_no_available": false,
+        "history_level": "ESTABLISHED",
+        "cards_held": 1,
+        "active_cards": 1,
+        "devices_registered": 1
+      },
+      "recommendation_status": "FULL",
+      "shortfall_reason": null,
+      "offers": [
+        {
+          "rank": 1,
+          "offer_id": "SMP-GRO-003",
+          "offer_title": "[SAMPLE] LKR 750 off at Arpico Supercentre",
+          "offer_description": "Synthetic sample offer: flat LKR 750 off on a basket of LKR 7500 or more.",
+          "recommendation_score": 0.790175,
+          "recommendation_reason": "You frequently shop at Arpico Supercentre (5 purchases in your history), there is an outlet in Jaffna, and this offer applies to your Mastercard debit card.",
+          "reason_codes": [
+            "FREQUENT_MERCHANT",
+            "RECENT_MERCHANT",
+            "NEARBY_OUTLET",
+            "CARD_ELIGIBLE"
+          ],
+          "offer_type": "FIXED_DISCOUNT",
+          "offer_value": 750.0,
+          "minimum_spend": 7500.0,
+          "maximum_benefit": 750.0,
+          "estimated_customer_saving": 750.0,
+          "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 10,458 (your average at Arpico Supercentre); benefit = fixed LKR 750. Not a guaranteed amount.",
+          "currency": "LKR",
+          "valid_from": "2026-10-01",
+          "valid_to": "2027-01-31",
+          "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion. Visa and Mastercard only.",
+          "is_sample_offer": true,
+          "card": {
+            "card_id": "CARD_00000207",
+            "card_network": "MASTERCARD",
+            "card_type": "DEBIT"
+          },
+          "merchant": {
+            "merchant_id": "MERCHANT_000163",
+            "merchant_brand": "Arpico Supercentre",
+            "merchant_location": "No. 349, Main Street, Chavakachcheri",
+            "merchant_city": "Chavakachcheri",
+            "merchant_district": "Jaffna",
+            "merchant_province": "Northern",
+            "merchant_email": "a***@merchant-mail.example",
+            "merchant_contact_no": "********050",
+            "merchant_type": "PHYSICAL",
+            "merchant_category": "GROCERY"
+          },
+          "customer_merchant_spend": {
+            "merchant_transaction_amount_last_3_months": 15301.56,
+            "merchant_transaction_count_last_3_months": 2,
+            "last_transaction_date_with_merchant": "2026-10-01",
+            "average_transaction_amount_with_merchant": 10458.26,
+            "aggregation_period_start": "2026-07-13",
+            "aggregation_period_end": "2026-10-12",
+            "currency": "LKR"
+          }
+        },
+        {
+          "rank": 2,
+          "offer_id": "SMP-GRO-004",
+          "offer_title": "[SAMPLE] 12% off at Keells Online",
+          "offer_description": "Synthetic sample offer: 12% off grocery orders placed on Keells Online.",
+          "recommendation_score": 0.695039,
+          "recommendation_reason": "Grocery is one of your main spending categories, customers with similar spending also shop at Keells Online, and this offer applies to your Mastercard debit card.",
+          "reason_codes": [
+            "CATEGORY_AFFINITY",
+            "SIMILAR_CUSTOMERS",
+            "CARD_ELIGIBLE"
+          ],
+          "offer_type": "PERCENT_DISCOUNT",
+          "offer_value": 12.0,
+          "minimum_spend": 6000.0,
+          "maximum_benefit": 2000.0,
+          "estimated_customer_saving": 966.34,
+          "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 8,053 (your typical purchase size); benefit = 12% of the purchase. Not a guaranteed amount.",
+          "currency": "LKR",
+          "valid_from": "2026-10-01",
+          "valid_to": "2027-01-31",
+          "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion. Online orders only.",
+          "is_sample_offer": true,
+          "card": {
+            "card_id": "CARD_00000207",
+            "card_network": "MASTERCARD",
+            "card_type": "DEBIT"
+          },
+          "merchant": {
+            "merchant_id": "MERCHANT_000243",
+            "merchant_brand": "Keells Online",
+            "merchant_location": "ONLINE",
+            "merchant_city": "Colombo",
+            "merchant_district": "Colombo",
+            "merchant_province": "Western",
+            "merchant_email": "k***@merchant-mail.example",
+            "merchant_contact_no": "********354",
+            "merchant_type": "ONLINE",
+            "merchant_category": "GROCERY"
+          },
+          "customer_merchant_spend": {
+            "merchant_transaction_amount_last_3_months": 0.0,
+            "merchant_transaction_count_last_3_months": 0,
+            "last_transaction_date_with_merchant": null,
+            "average_transaction_amount_with_merchant": null,
+            "aggregation_period_start": "2026-07-13",
+            "aggregation_period_end": "2026-10-12",
+            "currency": "LKR"
+          }
+        },
+        {
+          "rank": 3,
+          "offer_id": "SMP-HEA-002",
+          "offer_title": "[SAMPLE] 10% off health checks at Asiri Hospitals",
+          "offer_description": "Synthetic sample offer: 10% off health-check packages at Asiri Hospitals.",
+          "recommendation_score": 0.589119,
+          "recommendation_reason": "You have shopped at Asiri Hospitals before, and this offer applies to your Mastercard debit card.",
+          "reason_codes": [
+            "PAST_MERCHANT",
+            "CARD_ELIGIBLE"
+          ],
+          "offer_type": "PERCENT_DISCOUNT",
+          "offer_value": 10.0,
+          "minimum_spend": 10000.0,
+          "maximum_benefit": 5000.0,
+          "estimated_customer_saving": 1380.59,
+          "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 13,806 (your average at Asiri Hospitals); benefit = 10% of the purchase. Not a guaranteed amount.",
+          "currency": "LKR",
+          "valid_from": "2026-10-01",
+          "valid_to": "2027-01-31",
+          "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion. Health-check packages only.",
+          "is_sample_offer": true,
+          "card": {
+            "card_id": "CARD_00000207",
+            "card_network": "MASTERCARD",
+            "card_type": "DEBIT"
+          },
+          "merchant": {
+            "merchant_id": "MERCHANT_001015",
+            "merchant_brand": "Asiri Hospitals",
+            "merchant_location": "No. 429, High Level Road, Sri Jayawardenepura Kotte",
+            "merchant_city": "Sri Jayawardenepura Kotte",
+            "merchant_district": "Colombo",
+            "merchant_province": "Western",
+            "merchant_email": "a***@merchant-mail.example",
+            "merchant_contact_no": "********951",
+            "merchant_type": "PHYSICAL",
+            "merchant_category": "HEALTHCARE"
+          },
+          "customer_merchant_spend": {
+            "merchant_transaction_amount_last_3_months": 0.0,
+            "merchant_transaction_count_last_3_months": 0,
+            "last_transaction_date_with_merchant": "2026-07-11",
+            "average_transaction_amount_with_merchant": 13805.88,
+            "aggregation_period_start": "2026-07-13",
+            "aggregation_period_end": "2026-10-12",
+            "currency": "LKR"
+          }
+        }
+      ],
+      "generated_at": "2026-10-25T19:36:59Z",
+      "data_as_of": "2026-10-12",
+      "model_version": "hybrid-20261026-010612",
+      "batch_id": 24,
+      "aggregation_period_start": "2026-07-13",
+      "aggregation_period_end": "2026-10-12",
+      "served_at": "2026-10-26T01:22:58+05:30",
+      "pii_masked": true
+    }
+  ],
+  "page": 1,
+  "page_size": 2,
+  "total": 1151,
+  "pages": 576,
+  "batch_id": 24,
+  "model_version": "hybrid-20261026-010612",
+  "data_as_of": "2026-10-12",
+  "generated_at": "2026-10-25T19:36:59Z"
+}

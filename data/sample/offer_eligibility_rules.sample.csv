@@ -1,0 +1,7 @@
+offer_id,rule_type,operator,rule_value,description,is_active
+SMP-RET-001,MIN_TENURE_MONTHS,GTE,6,Customers with at least 6 months tenure,YES
+SMP-HOT-001,CUSTOMER_SEGMENT,IN,AFFLUENT;PREMIUM;SALARIED;SELF_EMPLOYED,Segments targeted by the sample hotel campaign,YES
+SMP-ELE-001,MIN_SPEND_LAST_90D_LKR,GTE,50000,Customers who spent at least LKR 50000 in the last 90 days,YES
+SMP-ECO-002,NEW_TO_BRAND,IS_TRUE,,Acquisition offer: customers with no Kapruka transactions in the history window,YES
+SMP-GRO-001,EXISTING_BRAND_CUSTOMER,IS_TRUE,,Loyalty offer: customers who already shop at Keells Super,YES
+SMP-EDU-002,CUSTOMER_SEGMENT,IN,STUDENT;YOUNG_PROFESSIONAL,Education offer for students and young professionals,YES

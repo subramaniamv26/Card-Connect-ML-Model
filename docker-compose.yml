@@ -1,0 +1,68 @@
+# Card Connect offer recommendation platform.
+# The database is EXTERNAL (Oracle 19c, e.g. FreeSQL over TCPS); no database container is started here.
+#   docker compose --env-file .env build
+#   docker compose --env-file .env up -d
+name: card-connect-offers
+
+x-backend-env: &backend-env
+  ORACLE_DSN: ${ORACLE_DSN:?set ORACLE_DSN in .env}
+  ORACLE_USER: ${ORACLE_USER:?set ORACLE_USER in .env}
+  ORACLE_PASSWORD: ${ORACLE_PASSWORD:?set ORACLE_PASSWORD in .env}
+  ORACLE_POOL_MAX: ${ORACLE_POOL_MAX:-4}
+  JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET in .env}
+  JWT_TTL_MINUTES: ${JWT_TTL_MINUTES:-60}
+  REQUIRE_FOUR_EYES_APPROVAL: ${REQUIRE_FOUR_EYES_APPROVAL:-false}
+  CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+  LOG_LEVEL: ${LOG_LEVEL:-INFO}
+  TIMEZONE: Asia/Colombo
+  TRAINING_CRON_HOUR: ${TRAINING_CRON_HOUR:-2}
+  TRAINING_CRON_MINUTE: ${TRAINING_CRON_MINUTE:-0}
+
+services:
+  migrate:
+    build: { context: ./backend, target: api }
+    image: card-connect-offers-api:${IMAGE_TAG:-1.0.0}
+    environment: *backend-env
+    command: ["python", "-m", "app.migrate"]
+    restart: "no"
+
+  api:
+    image: card-connect-offers-api:${IMAGE_TAG:-1.0.0}
+    environment: *backend-env
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    volumes:
+      - appdata:/data
+      - models:/models
+    ports:
+      - "${API_PORT:-8000}:8000"
+    restart: unless-stopped
+
+  worker:
+    build: { context: ./backend, target: worker }
+    image: card-connect-offers-worker:${IMAGE_TAG:-1.0.0}
+    environment: *backend-env
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+    volumes:
+      - appdata:/data
+      - models:/models
+    restart: unless-stopped
+    deploy:
+      replicas: 1
+
+  web:
+    build: { context: ./frontend }
+    image: card-connect-offers-web:${IMAGE_TAG:-1.0.0}
+    environment:
+      BACKEND_URL: http://api:8000
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+    depends_on:
+      api: { condition: service_healthy }
+    ports:
+      - "${WEB_PORT:-3000}:3000"
+    restart: unless-stopped
+
+volumes:
+  appdata:   # uploaded CSVs and generated exports (shared by api and worker)
+  models:    # versioned model artifacts (persist across restarts)

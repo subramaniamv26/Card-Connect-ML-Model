@@ -1,0 +1,23 @@
+{
+  "events": [
+    {
+      "event_type": "IMPRESSION",
+      "customer_id": "CUSTOMER_000001",
+      "offer_id": "SMP-RES-001",
+      "occurred_at": "2026-10-26T09:15:00+05:30",
+      "idempotency_key": "app-7f3c2a91-imp-1",
+      "batch_id": 24,
+      "channel": "MOBILE_APP"
+    },
+    {
+      "event_type": "REDEMPTION",
+      "customer_id": "CUSTOMER_000001",
+      "offer_id": "SMP-RES-001",
+      "occurred_at": "2026-10-27T19:02:11+05:30",
+      "idempotency_key": "txn-TXN_003000101",
+      "card_id": "CARD_00000001",
+      "transaction_id": "TXN_003000101",
+      "benefit_amount": 838.71
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "job_type": "RECOMMENDATION_EXPORT",
+  "format": "csv",
+  "include_pii": false,
+  "filters": {
+    "district": "Kandy",
+    "status": "FULL"
+  }
+}

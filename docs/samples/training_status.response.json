@@ -1,0 +1,121 @@
+{
+  "last_run": {
+    "run_id": 61,
+    "trigger_type": "MANUAL",
+    "requested_by": "admin",
+    "status": "RUNNING",
+    "attempt": 1,
+    "max_attempts": 3,
+    "model_version": null,
+    "algorithm": null,
+    "data_cutoff": "2026-10-12T00:00:00",
+    "window_start": "2025-10-13T00:00:00",
+    "window_end": "2026-10-13T00:00:00",
+    "transaction_rows": null,
+    "label_rows": null,
+    "metrics": null,
+    "baseline_metrics": null,
+    "active_model_metrics": null,
+    "promoted": "N",
+    "promotion_decision": null,
+    "batch_id": null,
+    "error_message": null,
+    "created_at": "2026-10-25T19:51:24.018123Z",
+    "started_at": "2026-10-25T19:51:31.782755Z",
+    "finished_at": null,
+    "duration_seconds": null
+  },
+  "last_successful_run": {
+    "run_id": 41,
+    "trigger_type": "MANUAL",
+    "requested_by": "admin",
+    "status": "SUCCEEDED",
+    "attempt": 1,
+    "max_attempts": 3,
+    "model_version": "hybrid-20261026-010612",
+    "algorithm": "hybrid: affinity+collaborative+content + HGB response ranker",
+    "data_cutoff": "2026-10-12T00:00:00",
+    "window_start": "2025-10-13T00:00:00",
+    "window_end": "2026-10-13T00:00:00",
+    "transaction_rows": 3000000,
+    "label_rows": 72331,
+    "metrics": {
+      "candidate": {
+        "precision_at_3": 0.4996,
+        "recall_at_3": 0.2968,
+        "ndcg_at_3": 0.5586,
+        "evaluated_customers": 18342,
+        "discovery_recall_at_3": 0.1152,
+        "share_of_recs_new_to_customer": 0.0556
+      },
+      "batch_quality": {
+        "customers": 50000,
+        "coverage_any": 1.0,
+        "coverage_full_3": 1.0,
+        "avg_offers_per_customer": 3.0,
+        "intra_list_category_diversity": 0.8963,
+        "catalog_coverage": 0.973,
+        "eligibility_compliance": 1.0,
+        "eligibility_checked": 150000,
+        "history_levels": {
+          "ESTABLISHED": 49891,
+          "LIMITED": 109
+        },
+        "generation_seconds": 48.3
+      },
+      "ranker_validation": {
+        "wave_start": "2026-08-26",
+        "rows": 14758,
+        "positives": 4144,
+        "ranker_auc": 0.7239183759993539,
+        "ranker_average_precision": 0.4860929270608813,
+        "ranker_log_loss": 0.5299255584962563,
+        "heuristic_auc": 0.7121546640519223,
+        "baseline_auc": 0.7012377974962768,
+        "train_waves": [
+          "2026-04-28",
+          "2026-05-28",
+          "2026-06-27",
+          "2026-07-27"
+        ]
+      },
+      "ranker_decision": "ranker accepted (validation AUC gain 0.0118); refit on all 5 completed waves",
+      "serving_model": "hybrid-20261026-010612"
+    },
+    "baseline_metrics": {
+      "precision_at_3": 0.4716,
+      "recall_at_3": 0.2797,
+      "ndcg_at_3": 0.5274,
+      "evaluated_customers": 18342,
+      "discovery_recall_at_3": 0.1303,
+      "share_of_recs_new_to_customer": 0.0077
+    },
+    "active_model_metrics": {
+      "precision_at_3": 0.5071,
+      "recall_at_3": 0.2995,
+      "ndcg_at_3": 0.5663,
+      "evaluated_customers": 18342,
+      "discovery_recall_at_3": 0.1237,
+      "share_of_recs_new_to_customer": 0.0723
+    },
+    "promoted": "Y",
+    "promotion_decision": "candidate NDCG@3 0.5586 vs active_model 0.5663 (tolerance 2%): PROMOTED. Note: the active model is evaluated frozen; its ranker may have seen labels that overlap the hold-out, which biases this comparison in its favour (conservative gate).",
+    "batch_id": 24,
+    "error_message": null,
+    "created_at": "2026-10-25T19:35:53.019441Z",
+    "started_at": "2026-10-25T19:35:56.140563Z",
+    "finished_at": "2026-10-25T19:38:19.342338Z",
+    "duration_seconds": 143.2
+  },
+  "active_model": {
+    "model_version": "hybrid-20261026-012159",
+    "algorithm": "hybrid: affinity+collaborative+content + HGB response ranker",
+    "data_cutoff": "2026-10-12T00:00:00",
+    "promoted_at": "2026-10-25T19:52:31.856925Z",
+    "run_id": 61
+  },
+  "next_scheduled_run": "2026-10-26T02:00+05:30",
+  "schedule": "daily 02:00 Asia/Colombo",
+  "worker_heartbeat": "2026-10-25T19:52:31Z",
+  "queued_or_running": 1
+}

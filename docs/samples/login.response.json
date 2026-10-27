@@ -1,0 +1,7 @@
+{
+  "access_token": "<jwt>",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "username": "analyst",
+  "role": "ANALYST"
+}

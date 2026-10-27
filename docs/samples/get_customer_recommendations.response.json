@@ -1,0 +1,178 @@
+{
+  "customer": {
+    "customer_id": "CUSTOMER_000001",
+    "customer_name": "D***** K**********",
+    "mobile_device_id": "DEV*******001",
+    "customer_home_city": "Negombo",
+    "customer_home_district": "Gampaha",
+    "customer_home_province": "Western",
+    "customer_contact_no": null,
+    "customer_contact_no_available": false,
+    "history_level": "ESTABLISHED",
+    "cards_held": 3,
+    "active_cards": 3,
+    "devices_registered": 1
+  },
+  "recommendation_status": "FULL",
+  "shortfall_reason": null,
+  "offers": [
+    {
+      "rank": 1,
+      "offer_id": "SMP-RES-001",
+      "offer_title": "[SAMPLE] 15% off at Pizza Hut",
+      "offer_description": "Synthetic sample offer: 15% off dine-in and takeaway at Pizza Hut.",
+      "recommendation_score": 0.743328,
+      "recommendation_reason": "You frequently shop at Pizza Hut (9 purchases in your history), there is an outlet in Gampaha, and this offer applies to your Amex credit card.",
+      "reason_codes": [
+        "FREQUENT_MERCHANT",
+        "RECENT_MERCHANT",
+        "NEARBY_OUTLET",
+        "CARD_ELIGIBLE"
+      ],
+      "offer_type": "PERCENT_DISCOUNT",
+      "offer_value": 15.0,
+      "minimum_spend": 3000.0,
+      "maximum_benefit": 1500.0,
+      "estimated_customer_saving": 838.71,
+      "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 5,591 (your average at Pizza Hut); benefit = 15% of the purchase. Not a guaranteed amount.",
+      "currency": "LKR",
+      "valid_from": "2026-10-01",
+      "valid_to": "2027-01-31",
+      "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion.",
+      "is_sample_offer": true,
+      "card": {
+        "card_id": "CARD_00000001",
+        "card_network": "AMEX",
+        "card_type": "CREDIT"
+      },
+      "merchant": {
+        "merchant_id": "MERCHANT_000303",
+        "merchant_brand": "Pizza Hut",
+        "merchant_location": "No. 435, Hospital Road, Negombo",
+        "merchant_city": "Negombo",
+        "merchant_district": "Gampaha",
+        "merchant_province": "Western",
+        "merchant_email": "p***@merchant-mail.example",
+        "merchant_contact_no": "********596",
+        "merchant_type": "PHYSICAL",
+        "merchant_category": "RESTAURANT"
+      },
+      "customer_merchant_spend": {
+        "merchant_transaction_amount_last_3_months": 22448.6,
+        "merchant_transaction_count_last_3_months": 3,
+        "last_transaction_date_with_merchant": "2026-10-02",
+        "average_transaction_amount_with_merchant": 6093.8,
+        "aggregation_period_start": "2026-07-13",
+        "aggregation_period_end": "2026-10-12",
+        "currency": "LKR"
+      }
+    },
+    {
+      "rank": 2,
+      "offer_id": "SMP-RET-001",
+      "offer_title": "[SAMPLE] 20% off at ODEL",
+      "offer_description": "Synthetic sample offer: 20% off fashion at ODEL stores.",
+      "recommendation_score": 0.743081,
+      "recommendation_reason": "You frequently shop at ODEL (3 purchases in your history), there is an outlet in Gampaha, and this offer applies to your Visa credit card.",
+      "reason_codes": [
+        "FREQUENT_MERCHANT",
+        "NEARBY_OUTLET",
+        "CARD_ELIGIBLE"
+      ],
+      "offer_type": "PERCENT_DISCOUNT",
+      "offer_value": 20.0,
+      "minimum_spend": 10000.0,
+      "maximum_benefit": 5000.0,
+      "estimated_customer_saving": 4207.63,
+      "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 21,038 (your average at ODEL); benefit = 20% of the purchase. Not a guaranteed amount.",
+      "currency": "LKR",
+      "valid_from": "2026-10-01",
+      "valid_to": "2027-01-31",
+      "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion. Credit cards only.",
+      "is_sample_offer": true,
+      "card": {
+        "card_id": "CARD_00000003",
+        "card_network": "VISA",
+        "card_type": "CREDIT"
+      },
+      "merchant": {
+        "merchant_id": "MERCHANT_000659",
+        "merchant_brand": "ODEL",
+        "merchant_location": "No. 78, Park Road, Negombo",
+        "merchant_city": "Negombo",
+        "merchant_district": "Gampaha",
+        "merchant_province": "Western",
+        "merchant_email": "o***@merchant-mail.example",
+        "merchant_contact_no": "********871",
+        "merchant_type": "PHYSICAL",
+        "merchant_category": "RETAIL"
+      },
+      "customer_merchant_spend": {
+        "merchant_transaction_amount_last_3_months": 49492.66,
+        "merchant_transaction_count_last_3_months": 2,
+        "last_transaction_date_with_merchant": "2026-09-05",
+        "average_transaction_amount_with_merchant": 24746.33,
+        "aggregation_period_start": "2026-07-13",
+        "aggregation_period_end": "2026-10-12",
+        "currency": "LKR"
+      }
+    },
+    {
+      "rank": 3,
+      "offer_id": "SMP-TRV-002",
+      "offer_title": "[SAMPLE] 15% cashback on PickMe rides",
+      "offer_description": "Synthetic sample offer: 15% cashback on PickMe rides.",
+      "recommendation_score": 0.662479,
+      "recommendation_reason": "You frequently shop at PickMe (7 purchases in your history), and this offer applies to your Mastercard credit card.",
+      "reason_codes": [
+        "FREQUENT_MERCHANT",
+        "CARD_ELIGIBLE"
+      ],
+      "offer_type": "PERCENT_CASHBACK",
+      "offer_value": 15.0,
+      "minimum_spend": 1000.0,
+      "maximum_benefit": 400.0,
+      "estimated_customer_saving": 250.43,
+      "estimated_customer_saving_assumptions": "Assumes one purchase of LKR 1,670 (your average at PickMe); benefit = 15% of the purchase. Not a guaranteed amount.",
+      "currency": "LKR",
+      "valid_from": "2026-10-01",
+      "valid_to": "2027-01-31",
+      "terms_and_conditions": "SYNTHETIC SAMPLE FOR TESTING ONLY - not a real promotion.",
+      "is_sample_offer": true,
+      "card": {
+        "card_id": "CARD_00000002",
+        "card_network": "MASTERCARD",
+        "card_type": "CREDIT"
+      },
+      "merchant": {
+        "merchant_id": "MERCHANT_000959",
+        "merchant_brand": "PickMe",
+        "merchant_location": "ONLINE",
+        "merchant_city": "Colombo",
+        "merchant_district": "Colombo",
+        "merchant_province": "Western",
+        "merchant_email": "p***@merchant-mail.example",
+        "merchant_contact_no": "********383",
+        "merchant_type": "ONLINE",
+        "merchant_category": "TRAVEL"
+      },
+      "customer_merchant_spend": {
+        "merchant_transaction_amount_last_3_months": 8892.32,
+        "merchant_transaction_count_last_3_months": 4,
+        "last_transaction_date_with_merchant": "2026-08-30",
+        "average_transaction_amount_with_merchant": 1669.53,
+        "aggregation_period_start": "2026-07-13",
+        "aggregation_period_end": "2026-10-12",
+        "currency": "LKR"
+      }
+    }
+  ],
+  "generated_at": "2026-10-25T19:36:59Z",
+  "data_as_of": "2026-10-12",
+  "model_version": "hybrid-20261026-010612",
+  "batch_id": 24,
+  "aggregation_period_start": "2026-07-13",
+  "aggregation_period_end": "2026-10-12",
+  "served_at": "2026-10-26T01:22:58+05:30",
+  "pii_masked": true
+}

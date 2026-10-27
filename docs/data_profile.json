@@ -1,0 +1,362 @@
+{
+  "data_dir": "E:\\Local_Repository\\CardConnect_ML\\output",
+  "files": {
+    "customers.csv": {
+      "rows": 50000,
+      "columns": [
+        "customer_id",
+        "customer_name",
+        "nic_no",
+        "mobile_device_id",
+        "device_type",
+        "device_os",
+        "customer_segment",
+        "customer_home_city",
+        "customer_home_district",
+        "customer_home_province",
+        "customer_tenure_months",
+        "number_of_cards"
+      ],
+      "header_vs_dictionary": {
+        "in_dictionary_not_in_file": [
+          "customer_contact_no"
+        ],
+        "in_file_not_in_dictionary": []
+      },
+      "nulls": {},
+      "duplicate_primary_keys": 0,
+      "exact_duplicate_rows": 0,
+      "duplicate_nic": 0,
+      "duplicate_device": 0,
+      "segments": {
+        "SALARIED": 12422,
+        "FAMILY": 9129,
+        "YOUNG_PROFESSIONAL": 9036,
+        "STUDENT": 6027,
+        "SELF_EMPLOYED": 5999,
+        "AFFLUENT": 4921,
+        "PREMIUM": 2466
+      },
+      "districts": 25,
+      "provinces": 9,
+      "has_customer_contact_no": false
+    },
+    "cards.csv": {
+      "rows": 88489,
+      "columns": [
+        "card_id",
+        "customer_id",
+        "nic_no",
+        "card_network",
+        "card_type",
+        "card_tier",
+        "card_age_months",
+        "card_status"
+      ],
+      "header_vs_dictionary": {
+        "in_dictionary_not_in_file": [],
+        "in_file_not_in_dictionary": []
+      },
+      "nulls": {},
+      "duplicate_primary_keys": 0,
+      "exact_duplicate_rows": 0,
+      "orphan_customer": 0,
+      "network_type": {
+        "VISA/CREDIT": 24635,
+        "VISA/DEBIT": 22101,
+        "MASTERCARD/CREDIT": 18049,
+        "MASTERCARD/DEBIT": 14773,
+        "AMEX/CREDIT": 8931
+      },
+      "status": {
+        "ACTIVE": 85033,
+        "INACTIVE": 2331,
+        "BLOCKED": 1125
+      },
+      "number_of_cards_mismatch": 0,
+      "customers_without_active_card": 0,
+      "nic_mismatch_with_customer": 0
+    },
+    "merchants.csv": {
+      "rows": 1175,
+      "columns": [
+        "merchant_id",
+        "merchant_brand",
+        "merchant_category",
+        "merchant_location",
+        "merchant_city",
+        "merchant_district",
+        "merchant_province",
+        "merchant_email",
+        "merchant_contact_no",
+        "merchant_type",
+        "merchant_offer_supported"
+      ],
+      "header_vs_dictionary": {
+        "in_dictionary_not_in_file": [],
+        "in_file_not_in_dictionary": []
+      },
+      "nulls": {},
+      "duplicate_primary_keys": 0,
+      "exact_duplicate_rows": 0,
+      "categories": {
+        "FUEL": 250,
+        "GROCERY": 243,
+        "ELECTRONICS": 191,
+        "RESTAURANT": 157,
+        "RETAIL": 114,
+        "HEALTHCARE": 99,
+        "EDUCATION": 49,
+        "HOTEL": 34,
+        "TRAVEL": 13,
+        "ENTERTAINMENT": 12,
+        "E-COMMERCE": 7,
+        "UTILITIES": 6
+      },
+      "types": {
+        "PHYSICAL": 1145,
+        "ONLINE": 20,
+        "SERVICE": 10
+      },
+      "offer_supported": {
+        "YES": 1104,
+        "NO": 71
+      },
+      "brands": 91,
+      "international_outlets": 8,
+      "location_value_ONLINE": 12
+    },
+    "customer_offer_candidates.csv": {
+      "rows": 231213,
+      "columns": [
+        "offer_id",
+        "customer_id",
+        "recommended_category",
+        "recommended_merchant_brand",
+        "offer_reason",
+        "preference_score",
+        "offer_priority",
+        "offer_type",
+        "offer_status",
+        "offer_utilized"
+      ],
+      "header_vs_dictionary": {
+        "in_dictionary_not_in_file": [],
+        "in_file_not_in_dictionary": []
+      },
+      "nulls": {},
+      "duplicate_primary_keys": 0,
+      "exact_duplicate_rows": 0,
+      "status": {
+        "GENERATED": 143885,
+        "EXPIRED": 50228,
+        "REDEEMED": 26146,
+        "SENT": 10954
+      },
+      "offer_type": {
+        "LOYALTY": 73771,
+        "CROSS_SELL": 63379,
+        "CATEGORY_GROWTH": 54275,
+        "FREQUENCY_GROWTH": 16879,
+        "VALUE_GROWTH": 16646,
+        "REACTIVATION": 6263
+      },
+      "utilized": {
+        "NO": 205067,
+        "YES": 26146
+      },
+      "orphan_customer": 0,
+      "brands_not_in_merchant_master": [],
+      "has_discount_or_value_fields": false
+    },
+    "customer_offer_utilization.csv": {
+      "rows": 87328,
+      "columns": [
+        "offer_id",
+        "customer_id",
+        "merchant_id",
+        "merchant_brand",
+        "merchant_category",
+        "offer_type",
+        "offer_start_date",
+        "offer_end_date",
+        "offer_received",
+        "offer_redeemed",
+        "offer_utilized",
+        "utilization_date",
+        "utilization_transaction_id",
+        "utilization_amount"
+      ],
+      "header_vs_dictionary": {
+        "in_dictionary_not_in_file": [],
+        "in_file_not_in_dictionary": []
+      },
+      "nulls": {
+        "utilization_date": 61182,
+        "utilization_transaction_id": 61182,
+        "utilization_amount": 61182
+      },
+      "duplicate_primary_keys": 0,
+      "exact_duplicate_rows": 0,
+      "offer_start_min": "2026-04-28",
+      "offer_start_max": "2026-09-25",
+      "offer_end_min": "2026-05-18",
+      "offer_end_max": "2026-10-15",
+      "received": {
+        "YES": 87328
+      },
+      "utilized": {
+        "NO": 61182,
+        "YES": 26146
+      },
+      "redeemed_eq_utilized": true,
+      "offers_not_in_candidates": 0,
+      "candidates_not_in_utilization": 143885,
+      "orphan_merchant": 0,
+      "waves": [
+        {
+          "start": "2026-04-28",
+          "end": "2026-05-18",
+          "offers": 13573,
+          "utilized": 4701
+        },
+        {
+          "start": "2026-05-28",
+          "end": "2026-06-17",
+          "offers": 14434,
+          "utilized": 4454
+        },
+        {
+          "start": "2026-06-27",
+          "end": "2026-07-17",
+          "offers": 14663,
+          "utilized": 4392
+        },
+        {
+          "start": "2026-07-27",
+          "end": "2026-08-16",
+          "offers": 14903,
+          "utilized": 4412
+        },
+        {
+          "start": "2026-08-26",
+          "end": "2026-09-15",
+          "offers": 14758,
+          "utilized": 4144
+        },
+        {
+          "start": "2026-09-25",
+          "end": "2026-10-15",
+          "offers": 14997,
+          "utilized": 4043
+        }
+      ],
+      "utilization_rate_by_type": {
+        "CATEGORY_GROWTH": 0.2069,
+        "CROSS_SELL": 0.0725,
+        "FREQUENCY_GROWTH": 0.3963,
+        "LOYALTY": 0.4345,
+        "REACTIVATION": 0.1094,
+        "VALUE_GROWTH": 0.3229
+      }
+    },
+    "credit_card_transactions_3m.csv": {
+      "rows": 3000000,
+      "duplicate_transaction_id": 0,
+      "duplicate_card_timestamp": 0,
+      "nulls": {
+        "offer_id": 2973854
+      },
+      "status": {
+        "APPROVED": 2955036,
+        "DECLINED": 44964
+      },
+      "type": {
+        "BILL_PAYMENT": 271002,
+        "PURCHASE": 2638568,
+        "RECURRING_PAYMENT": 90430
+      },
+      "channel": {
+        "CONTACTLESS": 1146564,
+        "MOBILE_APP": 512960,
+        "ONLINE": 174129,
+        "POS_CHIP": 981570,
+        "RECURRING_AUTO_DEBIT": 184777
+      },
+      "currency": {
+        "LKR": 2836114,
+        "USD": 163886
+      },
+      "currency_international": {
+        "LKR/intl=0": 2836114,
+        "USD/intl=1": 163886
+      },
+      "month": {
+        "2026-04": 324844,
+        "2026-05": 537607,
+        "2026-06": 485577,
+        "2026-07": 503012,
+        "2026-08": 501086,
+        "2026-09": 459959,
+        "2026-10": 187915
+      },
+      "orphan_customer": 0,
+      "orphan_card": 0,
+      "orphan_merchant": 0,
+      "card_customer_mismatch": 0,
+      "customer_attr_mismatch": 0,
+      "card_attr_mismatch": 0,
+      "merchant_attr_mismatch": 0,
+      "non_active_card_txn": 0,
+      "amount_non_positive": 0,
+      "amount_unparseable": 0,
+      "datetime_unparseable": 0,
+      "hour_mismatch": 0,
+      "offer_id_present": 26146,
+      "offer_utilized_yes": 26146,
+      "offer_flag_inconsistent": 0,
+      "amount_lkr_min": 50.0,
+      "amount_lkr_max": 2500000.0,
+      "amount_lkr_sum_approved": 68883020443.5,
+      "approved_by_currency_sum": {
+        "LKR": 65768229349.5,
+        "USD": 10382636.98
+      },
+      "datetime_min": "2026-04-13 00:00:41",
+      "datetime_max": "2026-10-12 23:59:49",
+      "span_days": 182,
+      "header_vs_dictionary": {
+        "in_dictionary_not_in_file": [],
+        "in_file_not_in_dictionary": []
+      },
+      "util_txn_ids_missing_in_txn": 0
+    }
+  },
+  "issues": [
+    {
+      "severity": "HIGH",
+      "area": "customers.csv",
+      "finding": "Columns in data dictionary but missing from file: ['customer_contact_no']"
+    },
+    {
+      "severity": "HIGH",
+      "area": "credit_card_transactions_3m.csv",
+      "finding": "History covers 182 days (2026-04-13 00:00:41 .. 2026-10-12 23:59:49); a rolling 12-month window will contain only this period"
+    },
+    {
+      "severity": "MEDIUM",
+      "area": "credit_card_transactions_3m.csv",
+      "finding": "No REFUND / REVERSAL / CANCELLED records exist; only APPROVED and DECLINED"
+    },
+    {
+      "severity": "HIGH",
+      "area": "offers",
+      "finding": "No approved offer catalog: candidate offers carry no value, minimum spend, maximum benefit, validity, card eligibility or T&Cs"
+    },
+    {
+      "severity": "MEDIUM",
+      "area": "customers.csv",
+      "finding": "customer_contact_no is required by the API but absent from the CSV"
+    }
+  ]
+}
