@@ -60,10 +60,11 @@ export default function ImportsPage() {
           <form className="filters" onSubmit={upload}>
             <Field label="Dataset"><select name="dataset" value={dataset} onChange={(e) => setDataset(e.target.value)}>
               {ds.data?.map((d) => <option key={d.dataset} value={d.dataset}>{d.load_order}. {d.label}</option>)}</select></Field>
-            <Field label="CSV file" hint="UTF-8, header row required, max 2 GB"><input name="file" type="file" accept=".csv,text/csv" required /></Field>
+            <Field label="CSV file"><input name="file" type="file" accept=".csv,text/csv" required /></Field>
             <button className="btn btn-primary" disabled={busy}>{busy ? "Uploading…" : "Upload and validate"}</button>
             <a className="btn" href={`/api/proxy/imports/templates/${dataset}`}>Download template</a>
           </form>
+          <p className="small muted">CSV in UTF-8 with a header row, up to 2 GB.</p>
           {current && <p className="small muted">Required: <span className="mono">{current.required_columns.join(", ")}</span>
             {current.optional_columns.length > 0 && <> · optional: <span className="mono">{current.optional_columns.join(", ")}</span></>}</p>}
           {msg && <Notice tone={msg.tone}>{msg.text}</Notice>}

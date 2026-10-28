@@ -1,7 +1,7 @@
-"""Lease-based mutual exclusion stored in JOB_LOCKS (works across containers / replicas).
+"""Lease-based mutual exclusion stored in JOB_LOCKS (also safe if two worker processes are started by mistake).
 
 A lock is acquired with a single conditional UPDATE, so two workers can never both succeed. A lease
-expires automatically if its holder dies; the holder can renew it during long runs.
+expires automatically if its holder dies.
 """
 from __future__ import annotations
 
@@ -29,14 +29,6 @@ def acquire(conn, name: str, lease_seconds: int) -> str | None:
         {"o": owner, "n": name, "lease": timedelta(seconds=lease_seconds)})
     conn.commit()
     return owner if n == 1 else None
-
-
-def renew(conn, name: str, owner: str, lease_seconds: int) -> bool:
-    n = db.execute(conn, """UPDATE job_locks SET expires_at = SYS_EXTRACT_UTC(SYSTIMESTAMP) + :lease
-                            WHERE lock_name = :n AND owner_id = :o""",
-                   {"lease": timedelta(seconds=lease_seconds), "n": name, "o": owner})
-    conn.commit()
-    return n == 1
 
 
 def release(conn, name: str, owner: str) -> None:

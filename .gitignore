@@ -6,11 +6,8 @@
 **/.env.*
 !**/.env.example
 
-# Local runtime data
-.localdata/
-data/imports/
-data/exports/
-models/
+# Local runtime data (uploads, exports, model artifacts, logs)
+local_data/
 *.joblib
 
 # Python

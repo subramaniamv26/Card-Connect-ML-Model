@@ -28,12 +28,6 @@ class Page:
                 "pages": (total + self.page_size - 1) // self.page_size}
 
 
-def iso(v):
-    if v is None:
-        return None
-    return v.isoformat()
-
-
 def clean(row: dict) -> dict:
     """Convert datetimes to ISO strings. Every *_at column holds naive UTC and is emitted with a 'Z' suffix."""
     out = {}

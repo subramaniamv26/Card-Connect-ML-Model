@@ -1,5 +1,5 @@
-"""Worker / scheduler service: daily training at 02:00 Asia/Colombo, queued manual training, bulk jobs and
-CSV imports. Runs as its own container; the API only enqueues work.
+"""Worker / scheduler process: daily training at 02:00 Asia/Colombo, queued manual training, bulk jobs and
+CSV imports. Run it in its own terminal (python -m app.worker); the API only puts work in queue tables.
 
 * Overlap prevention: APScheduler max_instances=1 + coalesce, and a DB lease lock (JOB_LOCKS) shared by all
   worker replicas. A run that cannot get the lock stays QUEUED and is picked up later.
@@ -13,7 +13,6 @@ import hashlib
 import json
 import logging
 import signal
-import tempfile
 import threading
 import time
 from datetime import datetime, timedelta, timezone
@@ -241,11 +240,8 @@ def expire_exports() -> None:
         conn.commit()
 
 
-HEARTBEAT_FILE = Path(tempfile.gettempdir()) / "worker-heartbeat"
-
-
 def heartbeat() -> None:
-    HEARTBEAT_FILE.write_text(str(time.time()))   # read by the container health check
+    """Shown on the Training page so you can see the worker is alive."""
     with db.connection() as conn:
         set_state(conn, "WORKER_HEARTBEAT", datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
         conn.commit()

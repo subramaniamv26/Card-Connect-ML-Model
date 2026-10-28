@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const open = pathname === "/login" || pathname.startsWith("/api/") || pathname.startsWith("/_next") ||
-    pathname === "/favicon.ico" || pathname === "/healthz";
+    pathname === "/favicon.ico";
   if (open || req.cookies.get("cc_token")) return NextResponse.next();
   const url = req.nextUrl.clone();
   url.pathname = "/login";

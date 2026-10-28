@@ -7,7 +7,6 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
-  output: "standalone",
   poweredByHeader: false,
   images: { unoptimized: true },
   async headers() {

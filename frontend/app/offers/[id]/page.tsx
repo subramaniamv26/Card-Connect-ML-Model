@@ -143,7 +143,7 @@ export default function OfferPage({ params }: { params: Promise<{ id: string }> 
             <Field label="Rule type"><select name="rule_type" value={rt} onChange={(e) => setRt(e.target.value)}>
               {Object.keys(RULE_TYPES).map((t) => <option key={t}>{t}</option>)}</select></Field>
             <Field label="Operator"><select name="operator">{RULE_TYPES[rt].map((op) => <option key={op}>{op}</option>)}</select></Field>
-            {RULE_TYPES[rt][0] !== "IS_TRUE" && <Field label="Value" hint="Use ; between list values"><input name="rule_value" required /></Field>}
+            {RULE_TYPES[rt][0] !== "IS_TRUE" && <Field label="Value"><input name="rule_value" required placeholder="e.g. SALARIED;AFFLUENT" /></Field>}
             <Field label="Description"><input name="description" /></Field>
             <button className="btn">Add rule</button>
           </form>

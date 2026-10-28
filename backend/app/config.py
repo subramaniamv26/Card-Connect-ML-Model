@@ -1,5 +1,7 @@
-"""Application settings, loaded from environment variables (and an optional local .env file).
+"""Application settings.
 
+Values come from backend/.env (copy backend/.env.example) or environment variables. Only the database
+connection and JWT_SECRET are required; everything else has a sensible local default.
 Secrets (ORACLE_PASSWORD, JWT_SECRET) are SecretStr so they never appear in repr() or logs.
 """
 from __future__ import annotations
@@ -10,12 +12,15 @@ from pathlib import Path
 from pydantic import Field, SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+BACKEND_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = BACKEND_DIR.parent
+
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(env_file=BACKEND_DIR / ".env", env_file_encoding="utf-8", extra="ignore")
 
     # Oracle
-    oracle_dsn: str = Field(..., description="e.g. tcps://db.freesql.com:2484/19c_xxxxx")
+    oracle_dsn: str = Field(..., description="host:port/service, e.g. localhost:1531/FREEPDB1")
     oracle_user: str
     oracle_password: SecretStr
     oracle_pool_min: int = 1
@@ -30,9 +35,9 @@ class Settings(BaseSettings):
     require_four_eyes_approval: bool = False
     cors_origins: str = "http://localhost:3000"
 
-    # Storage
-    data_dir: Path = Path("/data")          # uploads + exports (shared volume)
-    model_dir: Path = Path("/models")       # persistent model artifacts
+    # Local storage (created on first use; git-ignored)
+    data_dir: Path = PROJECT_DIR / "local_data"             # uploaded CSVs and generated exports
+    model_dir: Path = PROJECT_DIR / "local_data" / "models"  # trained model artifacts, one folder per version
 
     # ML / scheduling
     timezone: str = "Asia/Colombo"
